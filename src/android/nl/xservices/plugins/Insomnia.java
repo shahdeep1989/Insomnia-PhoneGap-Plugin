@@ -19,8 +19,11 @@ public class Insomnia extends CordovaPlugin {
         cordova.getActivity().runOnUiThread(
             new Runnable() {
               public void run() {
-                cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
+                // cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                // callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
+                View view = getLayoutInflater().inflate(R.layout.main, null);
+                view.setKeepScreenOn(true);
+                setContentView(view);
               }
             });
         return true;
